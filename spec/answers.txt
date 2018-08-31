@@ -1,0 +1,89 @@
+WEEK 1 ASSESSMENT - Ruby
+
+
+>> Q1 - Variables <<
+
+variable1 = "variable"
+
+data types:
+strings, numbers - integers and floats, booleans - true or false, 
+
+>> Q2 Hashes and Arrays <<
+ week_1_assessment irb
+2.5.1 :001 > car1 = {wheels: 4, max_speed: 250, color: "blue"}
+ => {:wheels=>4, :max_speed=>250, :color=>"blue"} 
+2.5.1 :002 > car2 = {wheels: 4, max_speed: 120, color: "pink"}
+ => {:wheels=>4, :max_speed=>120, :color=>"pink"} 
+2.5.1 :003 > car_collection = [car1, car2]
+ => [{:wheels=>4, :max_speed=>250, :color=>"blue"}, {:wheels=>4, :max_speed=>120, :color=>"pink"}] 
+2.5.1 :004 > car_collection[1]
+ => {:wheels=>4, :max_speed=>120, :color=>"pink"} 
+2.5.1 :005 > car_collection[1][2]
+ => nil 
+2.5.1 :006 > car_collection[1][:color]
+ => "pink" 
+2.5.1 :007 > 
+
+
+
+>> Q3 Classes and methods <<
+
+# car.rb
+class Car
+
+attr_accessor :color
+
+def paint(color)
+  @color = color
+end
+
+end
+
+$ irb
+week_1_assessment mkdir cars
+➜  week_1_assessment cd cars 
+➜  cars touch car.rb
+➜  cars irb
+
+2.5.1 :004 > load 'car.rb'
+ => true 
+2.5.1 :005 > car3 = Car.new
+ => #<Car:0x00007fadf20776d0> 
+2.5.1 :006 > car3.paint("green")
+ => "green" 
+2.5.1 :007 > car3
+ => #<Car:0x00007fadf20776d0 @color="green"> 
+
+
+
+>> Q4 RSpec <<
+
+Q4.1 Initializing rspec in folder:
+➜  cars gem install rspec
+Successfully installed rspec-3.8.0
+Parsing documentation for rspec-3.8.0
+Installing ri documentation for rspec-3.8.0
+Done installing documentation for rspec after 0 seconds
+1 gem installed
+➜  cars rspec --init 
+  create   .rspec
+  create   spec/spec_helper.rb
+➜  cars ls -a
+.      ..     .rspec car.rb spec
+
+Also created a Gemfile in cars folder, and added:
+source 'https://rubygems.org'
+gem 'rspec'
+
+
+Q4.2 Why write tests first?
+- To know what to build/code
+- To not build "too" much, but instead just build enough to pass the test
+- Tests are "closer" to the user stories
+
+Q4.3 Unit test for Car class to test paint methods
+
+Q4.4 instance_double driver
+See code
+
+
